@@ -1,0 +1,5 @@
+_target_: models.dino_v3.DinoV3Encoder
+name: "dinov3_vits16"
+feature_key: "x_norm_patchtokens"
+use_timm: true
+pretrained: true

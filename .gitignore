@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environments
+.env
+.env.*
+.venv/
+venv/
+
+# Editor / OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test / type-check caches
+.pytest_cache/
+.mypy_cache/
+
+# Training / planning outputs
+runs/
+outputs/
+plan_outputs/
+wandb/
+rollout_plots/
+.hydra/
+logs.json
+plan_targets.pkl
+profiling_results.json
+
+# Checkpoints / packaged artifacts
+checkpoints/
+*.out
+*.tar.gz
+
+# Local logs
+*.log
+
+# Optional local dependency builds
+PyFleX/

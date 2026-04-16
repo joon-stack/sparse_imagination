@@ -1,0 +1,13 @@
+_target_: planning.mpc.MPCPlanner
+max_iter: 10 # unlimited if null
+n_taken_actions: 5
+sub_planner:
+  target: planning.cem.CEMPlanner
+  horizon: 5
+  topk: 10
+  num_samples: 100
+  var_scale: 1
+  opt_steps: 10
+  eval_every: 1
+
+name: mpc_cem

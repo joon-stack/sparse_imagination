@@ -1,0 +1,35 @@
+defaults:
+  - _self_
+  - planner: mpc_cem
+
+hydra:
+  run:
+    dir: ${oc.env:DINO_WM_PLAN_DIR,./plan_outputs}/${now:%Y%m%d%H%M%S}_${replace_slash:${model_name}}_gH${goal_H}
+  sweep:
+    dir: ${oc.env:DINO_WM_PLAN_DIR,./plan_outputs}/${now:%Y%m%d%H%M%S}_${replace_slash:${model_name}}_gH${goal_H}
+    subdir: ${hydra.job.num}
+
+# Existing checkpoints are expected under ${ckpt_root}/<model_name>/checkpoints/.
+ckpt_root: ${oc.env:DINO_WM_CKPT_DIR,./runs/outputs}
+ckpt_base_path: ${oc.env:DINO_WM_CKPT_BASE,./runs}
+model_name: pointmaze_dinovits_drop_nope
+model_epoch: latest
+
+wandb_logging: false
+seed: 99
+n_evals: 1
+goal_source: random_state
+goal_H: 5
+n_plot_samples: 1
+debug_dset_init: false
+
+objective:
+  _target_: planning.objectives.create_objective_fn
+  alpha: 1
+  alpha_vis: 1
+  base: 2
+  mode: last
+
+# Random sparse planning default. Use drop=false and plan_num_kept_patches=null for Full/CLS.
+drop: true
+plan_num_kept_patches: 98
