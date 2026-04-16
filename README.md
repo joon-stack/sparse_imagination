@@ -22,7 +22,6 @@ This repository contains the official minimal code release for Sparse Imaginatio
 Create a fresh environment from the provided environment file:
 
 ```bash
-cd ~/github/sparse_imagination
 conda env create -f environment.yaml -p /path/to/envs/sparse_imagination
 conda activate /path/to/envs/sparse_imagination
 ```
